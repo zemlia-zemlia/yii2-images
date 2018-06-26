@@ -32,7 +32,7 @@ class ImagesController extends Controller
      * All we need is love. No.
      * We need item (by id or another property) and alias (or images number)
      * @param $item
-     * @param $alias
+     * @param $dirtyAlias
      *
      */
     public function actionImageByItemAndAlias($item='', $dirtyAlias)
@@ -50,13 +50,20 @@ class ImagesController extends Controller
         if($image->getExtension() != $dotParts[1]){
             throw new \yii\web\HttpException(404, 'Image not found (extension)');
         }
-
-        if($image){
-            header('Content-Type: ' . $image->getMimeType($size) );
-            echo $image->getContent($size);
-        }else{
+        
+        if (empty($image)) {
             throw new \yii\web\HttpException(404, 'There is no images');
         }
+        
+        $name = !empty($image->name) ? $image->name : $image->urlAlias;
 
+        return Yii::$app->response->sendContentAsFile(
+            $image->getContent($size),
+            $name,
+            [
+                'mimeType' => $image->getMimeType($size),
+                'inline' => true
+            ]
+        );
     }
 }
