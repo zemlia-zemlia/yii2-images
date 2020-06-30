@@ -99,7 +99,7 @@ Installation
     <pre>
        {
             "require": {
-                "costa-rico/yii2-images": "dev-master"
+                "zemlia-zemlia/yii2-images": "*"
             }
        }
     </pre>
