@@ -12,7 +12,7 @@
             "homepage": "https://github.com/zemlia-zemlia/yii2-images"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "yiisoft/yii2": "*",
         "abeautifulsite/simpleimage": "2.7"
