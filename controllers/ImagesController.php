@@ -50,11 +50,11 @@ class ImagesController extends Controller
         if($image->getExtension() != $dotParts[1]){
             throw new \yii\web\HttpException(404, 'Image not found (extension)');
         }
-        
+
         if (empty($image)) {
             throw new \yii\web\HttpException(404, 'There is no images');
         }
-        
+
         $name = !empty($image->name) ? $image->name : $image->urlAlias;
 
         return Yii::$app->response->sendContentAsFile(

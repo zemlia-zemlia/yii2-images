@@ -1,15 +1,5 @@
 yii2-images
 ===========
-Guys, we definetly need to do something with this repo. I see several ways:
-<ul>
-<li>to write tests</li>
-<li>to find active contributers</li>
-<li>to find some alternative repo</li>
-</ul>
-What do you prefer? please let me know.
-
-
-
 Yii2-images is yii2 module that allows to attach images to any of your models, next you can get images in any sizes, also you can set main image of images set.
 
 Module supports Imagick and GD libraries, you can set up it in module settings.
@@ -83,7 +73,7 @@ Details
     $model->attachImage($absolutePathToImage, true); //will attach image and make it main
     
     foreach($model->getImages() as $img){
-        if($img->getPrimaryKey() == $ourId){
+        if($img->id == $ourId){
             $model->setMainImage($img);//will set current image main
         }
     }
@@ -92,7 +82,6 @@ Details
 4. Get image sizes
     ```php
     $image = $model->getImage();
-    $sizes = $image->getSizes(); // Array. Original image sizes
     $sizes = $image->getSizesWhen('x500');
     echo '&lt;img width="'.$sizes['width'].'" height="'.$sizes['height'].'" src="'.$image->getUrl('x500').'" />';
     ```
@@ -135,7 +124,6 @@ Installation
                 'imagesCachePath' => 'images/cache', //path to resized copies
                 'graphicsLibrary' => 'GD', //but really its better to use 'Imagick' 
                 'placeHolderPath' => '@webroot/images/placeHolder.png', // if you want to get placeholder when image not exists, string will be processed by Yii::getAlias
-                'imageCompressionQuality' => 100, // Optional. Default value is 85.
             ],
         ],
     ```

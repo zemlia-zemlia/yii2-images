@@ -130,7 +130,7 @@ class ImageBehave extends Behavior
         $images = $this->owner->getImages();
         foreach ($images as $allImg) {
 
-            if ($allImg->getPrimaryKey() == $img->getPrimaryKey()) {
+            if ($allImg->id == $img->id) {
                 continue;
             } else {
                 $counter++;
@@ -183,7 +183,7 @@ class ImageBehave extends Behavior
         $imageQuery->orderBy(['isMain' => SORT_DESC, 'id' => SORT_ASC]);
 
         $imageRecords = $imageQuery->all();
-        if(!$imageRecords && $this->getModule()->placeHolderPath){
+        if(!$imageRecords){
             return [$this->getModule()->getPlaceHolder()];
         }
         return $imageRecords;
