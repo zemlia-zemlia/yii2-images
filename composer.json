@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "zemlia-zemlia\\yii2images\\": ""
+            "zemlia\\yii2images\\": ""
         }
     }
 }

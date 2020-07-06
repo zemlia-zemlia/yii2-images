@@ -6,16 +6,16 @@
  * Time: 16:58
  */
 
-namespace rico\yii2images\behaviors;
+namespace zemlia\yii2images\behaviors;
 
-use rico\yii2images\models\Image;
+use zemlia\yii2images\models\Image;
 
 use yii;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
-use rico\yii2images\models;
+use zemlia\yii2images\models;
 use yii\helpers\BaseFileHelper;
-use \rico\yii2images\ModuleTrait;
+use \zemlia\yii2images\ModuleTrait;
 
 class ImageBehave extends Behavior
 {
@@ -97,7 +97,7 @@ class ImageBehave extends Behavior
 
         //If main image not exists
         if(
-            is_object($img) && get_class($img)=='rico\yii2images\models\PlaceHolder'
+            is_object($img) && get_class($img)=='zemlia\yii2images\models\PlaceHolder'
             or
             $img == null
             or

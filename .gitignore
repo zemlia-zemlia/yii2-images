@@ -29,3 +29,5 @@ phpunit.phar
 
 #ricoStore
 web/store/*
+
+tests/_output/*
